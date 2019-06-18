@@ -8,33 +8,39 @@
 2. Download cifar_images.zip, put it under 'dataset' dir and unzip it.
 
 3. Directory 'cyclegan' contains the code.
-    $ cyclegan
-        - train.py
-        - test.py
-        - \_init_paths.py
-        - experiments
-            - default.yaml
-        - lib
-            - models
-                - cyclegan.py
-            - config.py
-            - dataset.py
-            - function.py
-            - utils.py
-
+```
+$ cyclegan
+    - train.py
+    - test.py
+    - \_init_paths.py
+    - experiments
+        - default.yaml
+    - lib
+        - models
+            - cyclegan.py
+        - config.py
+        - dataset.py
+        - function.py
+        - utils.py
+```
 4. Train
     - cd to 'cyclegan' dir, and run
     $ CUDA_VISIBLE_DEVICES=0,1,2,3 python train.py --cfg experiments/default.yaml
     - then under 'cyclegan' dir, there will be two dirs added.
+    ```
+    $ cyclegan
         - log
-            - run 
-            $ tensorboard --logdir ./
-            will see the recorded loss in the tensorboard
-        - black2rgb 
-            - contains the output:
-                - the generated color images
-                - checkpoint.pth.tar
-                - training log
+        - black2rgb
+            - checkpoint.pth.tar
+            - images
+                - (generated images)
+            - training log file
+    ```
+    - run
+    ``` 
+    $ tensorboard --logdir ./log/cyclegan/
+    ```
+    will see the recorded loss in the tensorboard
     - All the hyper-parameters are in experiments/default.yaml, change them to train another networks in an easy way.
 
 5. Test
