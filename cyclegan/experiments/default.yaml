@@ -1,0 +1,38 @@
+GPUS: '0,1,2,3'
+OUTPUT_DIR: 'black2rgb'
+LOG_DIR: 'log'
+NUM_WORKERS: 8
+
+TRAIN:
+  START_EPOCH: 0
+  END_EPOCH: 160
+  BATCH_SIZE: 8
+  RESUME: False
+  SHUFFLE: True
+  LR: 0.0002
+  LR_STEP:
+    - 25
+    - 50
+    - 75
+    - 100
+    - 125
+    - 150
+  LR_FACTOR: 0.5
+  OPTIMIZER: 'adam'
+  BETAS: 
+    - 0.5
+    - 0.999
+  SAMPLE_INTERVAL: 500
+  CHECKPOINT_INTERVAL: 1
+  PRINT_FREQ: 1000
+TEST:
+  MODEL_FILE: 'black2rgb/cyclegan/default/checkpoint.pth.tar'
+  SHUFFLE: False
+  BATCH_SIZE: 8
+  PRINT_FREQ: 100
+LOSS:
+  CYCLE_WEIGHT: 10
+  IDENTITY_WEIGHT: 5
+NETWORK:
+  NUM_RES_BLOCKS: 2
+
