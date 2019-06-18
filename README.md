@@ -2,7 +2,7 @@
 # Project
 # From monochromatic to color image
 # 2019-06-18
-# Members: Gu Yun & Ma Xiaoxuan
+# Author: Molly & Shirley
 # --------------------------------------------------------------
 
 1. This folder contains two directories: cyclegan + dataset
